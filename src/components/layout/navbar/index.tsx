@@ -12,7 +12,7 @@ const links = [
 const activeLinkStyle = 'text-secondary'
 const linkStyle = 'hover:text-secondary transition-all'
 const navSmallToggledStyle =
-  'absolute top-full left-0 w-full h-[calc(100vh-80px)] bg-dark text-light flex flex-col justify-center items-center text-4xl space-y-5 md:hidden transition-transform duration-500'
+  'absolute top-full left-0 w-full h-[calc(100vh-80px)] bg-dark text-light flex flex-col justify-center items-center text-4xl space-y-5 md:hidden transition-transform duration-500 z-50'
 const navSmallStyle = `${navSmallToggledStyle} transform -translate-x-full`
 
 const Navbar = () => {
