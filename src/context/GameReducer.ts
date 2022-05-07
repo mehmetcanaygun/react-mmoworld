@@ -7,11 +7,13 @@ const NbaReducer = (state: TAppState, action: TActions) => {
       return {
         ...state,
         games: action.games,
+        loading: false
       }
     case actionTypes.GET_SINGLE_GAME:
       return {
         ...state,
         game: action.game,
+        loading: false
       }
     case actionTypes.SET_LOADING:
       return {

@@ -1,6 +1,7 @@
 import React, { useReducer, Reducer } from 'react'
 import GameContext from './GameContext'
 import GameReducer from './GameReducer'
+import { fetchGames, fetchSingleGame } from '../services'
 import { TActions, TAppState } from './types'
 import { actionTypes } from './helper'
 
@@ -21,6 +22,16 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
       publisher: '',
       developer: '',
       release_date: '',
+      status: '',
+      description: '',
+      minimum_system_requirements: {
+        os: '',
+        processor: '',
+        memory: '',
+        graphics: '',
+        storage: '',
+      },
+      screenshots: [],
     },
     loading: false,
   }
@@ -30,16 +41,30 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
     initialState
   )
 
-  const getGames = (platform: string): void => {
-    console.log('get ', platform, ' games')
+  const getGames = async (platform: string) => {
+    const games = await fetchGames(platform)
+
+    setLoading()
+
+    dispatch({
+      type: actionTypes.GET_GAMES,
+      games,
+    })
   }
 
-  const getSingleGame = (id: number): void => {
-    console.log('get single game with the id of: ', id)
+  const getSingleGame = async (id: string) => {
+    const game = await fetchSingleGame(id)
+
+    setLoading()
+
+    dispatch({
+      type: actionTypes.GET_SINGLE_GAME,
+      game,
+    })
   }
 
   const setLoading = (): void => {
-    console.log('set loading')
+    dispatch({ type: actionTypes.SET_LOADING, loading: true })
   }
 
   return (
