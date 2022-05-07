@@ -1,0 +1,5 @@
+export enum actionTypes {
+  SET_LOADING = 'SET_LOADING',
+  GET_GAMES = 'GET_GAMES',
+  GET_SINGLE_GAME = 'GET_SINGLE_GAME'
+}
