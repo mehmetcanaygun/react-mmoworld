@@ -4,6 +4,9 @@
 /* Navbar */
 @import '../components/layout/navbar/style.css';
 
+/* Home Page */
+@import '../pages/home/style.css';
+
 /* Tailwind */
 @tailwind base;
 @tailwind components;

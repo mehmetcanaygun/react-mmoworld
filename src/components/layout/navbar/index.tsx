@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { toggleScroll } from '../../../utils'
 
 const links = [
   { id: 0, text: 'Home', path: '/' },
@@ -10,15 +11,18 @@ const links = [
 
 const activeLinkStyle = 'text-secondary'
 const linkStyle = 'hover:text-secondary transition-all'
-const navSmallStyle =
-  'absolute top-full left-0 w-full h-[calc(100vh-80px)] bg-dark text-light flex flex-col justify-center items-center text-4xl space-y-5 md:hidden transform -translate-x-full transition-transform duration-500'
 const navSmallToggledStyle =
   'absolute top-full left-0 w-full h-[calc(100vh-80px)] bg-dark text-light flex flex-col justify-center items-center text-4xl space-y-5 md:hidden transition-transform duration-500'
+const navSmallStyle = `${navSmallToggledStyle} transform -translate-x-full`
 
 const Navbar = () => {
   const [toggled, setToggled] = useState(false)
 
   const onHamburgerClick = (): void => setToggled((prevState) => !prevState)
+
+  useEffect(() => {
+    toggleScroll(toggled)
+  }, [toggled])
 
   return (
     <div className="bg-dark shadow-xl relative">
