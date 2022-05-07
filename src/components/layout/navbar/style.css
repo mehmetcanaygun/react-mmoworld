@@ -1,0 +1,50 @@
+.hamburger-btn {
+  width: 40px;
+  height: 27px;
+  position: relative;
+}
+
+.hamburger-btn span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-light);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.hamburger-btn .line-top {
+  top: 0;
+}
+
+.hamburger-btn .line-middle {
+  top: 12px;
+  background-color: var(--color-secondary);
+}
+
+.hamburger-btn .line-bottom {
+  top: 24px;
+}
+
+.hamburger-btn.toggled .line-top,
+.hamburger-btn.toggled .line-bottom {
+  top: 12px;
+}
+
+.hamburger-btn.toggled .line-middle {
+  transform: rotate(90deg);
+}
+
+.hamburger-btn.toggled {
+  animation: formX 0.2s ease forwards 0.2s;
+}
+
+@keyframes formX {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}

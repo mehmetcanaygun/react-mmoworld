@@ -1,0 +1,18 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Macondo&display=swap');
+
+/* Variables */
+:root {
+  --color-primary: #d80de2;
+  --color-secondary: #86deb7;
+  --color-light: #fff8f0;
+  --color-dark: #050706;
+}
+
+/* Reset */
+body {
+  background: #360033;
+  background: -webkit-linear-gradient(to right, #0b8793, #360033);
+  background: linear-gradient(to right, #0b8793, #360033);
+  font-family: 'Bitter', serif;
+}

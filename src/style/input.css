@@ -1,5 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Bitter&family=Macondo&display=swap');
+/* Custom */
+@import './custom.css';
 
+/* Navbar */
+@import '../components/layout/navbar/style.css';
+
+/* Tailwind */
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
