@@ -154,35 +154,35 @@ const GameDetailPage = () => {
                   <Icon path={IconCog} size="20" />
                   <span className="ml-1">Operating System: </span>
                   <span className="text-primary">
-                    {minimum_system_requirements.os}
+                    {minimum_system_requirements?.os ?? '-'}
                   </span>
                 </li>
                 <li>
                   <Icon path={IconCog} size="20" />
                   <span className="ml-1">Processor: </span>
                   <span className="text-primary">
-                    {minimum_system_requirements.processor}
+                    {minimum_system_requirements?.processor ?? '-'}
                   </span>
                 </li>
                 <li>
                   <Icon path={IconCog} size="20" />
                   <span className="ml-1">Graphic Card: </span>
                   <span className="text-primary">
-                    {minimum_system_requirements.graphics}
+                    {minimum_system_requirements?.graphics ?? '-'}
                   </span>
                 </li>
                 <li>
                   <Icon path={IconCog} size="20" />
                   <span className="ml-1">RAM: </span>
                   <span className="text-primary">
-                    {minimum_system_requirements.memory}
+                    {minimum_system_requirements?.memory ?? '-'}
                   </span>
                 </li>
                 <li>
                   <Icon path={IconCog} size="20" />
                   <span className="ml-1">Storage: </span>
                   <span className="text-primary">
-                    {minimum_system_requirements.storage}
+                    {minimum_system_requirements?.storage ?? '-'}
                   </span>
                 </li>
               </ul>
