@@ -12,8 +12,9 @@ module.exports = {
       secondary: '#86DEB7',
       light: '#FFF8F0',
       dark: '#050706',
+      gray: '#A5A5A5',
     },
     extend: {},
   },
   plugins: [],
-}
+};

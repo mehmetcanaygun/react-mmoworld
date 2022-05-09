@@ -1,8 +1,8 @@
 import { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GameContext from '../../context/GameContext';
-import { Spinner, Icon } from '../../components';
-import { formatDate, toggleScroll } from '../../utils';
+import { Spinner, Icon, Header } from '../../components';
+import { formatDate, toggleScroll, capitalizeFirst } from '../../utils';
 import {
   IconApartment,
   IconCalendar,
@@ -17,7 +17,7 @@ const GameDetailPage = () => {
   const gameContext = useContext(GameContext);
   const [image, setImage] = useState('');
   const [windowTop, setWindowTop] = useState(0);
-  const { id } = useParams();
+  const { platform: platformParam, id } = useParams();
 
   const onImageClick = (path: string): void => {
     // Set modal top
@@ -49,6 +49,7 @@ const GameDetailPage = () => {
 
   if (gameContext?.gameDetail) {
     const {
+      id,
       developer,
       genre,
       minimum_system_requirements,
@@ -80,6 +81,18 @@ const GameDetailPage = () => {
             </div>
           </div>
         )}
+
+        <Header
+          title={title}
+          breadcrumbs={[
+            { text: 'Home', path: '/' },
+            {
+              text: `${platformParam && capitalizeFirst(platformParam)} Games`,
+              path: `/games/${platformParam}`,
+            },
+            { text: title, path: `/games/${platformParam}/${id}` },
+          ]}
+        />
 
         <div className="container mx-auto px-2 py-5 md:px-0 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>

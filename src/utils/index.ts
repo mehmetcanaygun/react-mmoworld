@@ -23,3 +23,7 @@ export const formatDate = (date: string): string => {
 
   return formatted
 }
+
+export const capitalizeFirst = (str: string): string => {
+  return `${str[0].toUpperCase()}${str.slice(1)}`
+}
