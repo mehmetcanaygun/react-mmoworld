@@ -2,7 +2,12 @@ import { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import GameContext from '../../context/GameContext';
 import { Spinner, Icon, Header } from '../../components';
-import { formatDate, toggleScroll, capitalizeFirst } from '../../utils';
+import {
+  formatDate,
+  toggleScroll,
+  capitalizeFirst,
+  scrollTop,
+} from '../../utils';
 import {
   IconApartment,
   IconCalendar,
@@ -41,6 +46,8 @@ const GameDetailPage = () => {
 
   useEffect(() => {
     if (id) gameContext?.getSingleGame(id);
+
+    scrollTop();
 
     // eslint-disable-next-line
   }, [id]);

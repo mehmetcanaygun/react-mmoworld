@@ -27,3 +27,7 @@ export const formatDate = (date: string): string => {
 export const capitalizeFirst = (str: string): string => {
   return `${str[0].toUpperCase()}${str.slice(1)}`
 }
+
+export const scrollTop = (): void => {
+  window.scrollTo(0, 0)
+}

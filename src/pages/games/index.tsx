@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import GameContext from '../../context/GameContext';
 import { Spinner, GameCard, Header } from '../../components';
-import { capitalizeFirst } from '../../utils';
+import { capitalizeFirst, scrollTop } from '../../utils';
 
 const GamesPage = () => {
   const gameContext = useContext(GameContext);
@@ -10,6 +10,8 @@ const GamesPage = () => {
 
   useEffect(() => {
     if (platform) gameContext?.getGames(platform);
+
+    scrollTop();
 
     // eslint-disable-next-line
   }, [platform]);
