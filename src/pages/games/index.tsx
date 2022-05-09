@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import GameContext from '../../context/GameContext';
-import { GameCard } from '../../components';
+import { Spinner, GameCard } from '../../components';
 
 const GamesPage = () => {
   const gameContext = useContext(GameContext);
@@ -9,7 +9,11 @@ const GamesPage = () => {
 
   useEffect(() => {
     if (platform) gameContext?.getGames(platform);
-  }, [gameContext, platform]);
+
+    // eslint-disable-next-line
+  }, [platform]);
+
+  if (gameContext?.loading) return <Spinner />;
 
   return (
     <div className="min-h-screen">

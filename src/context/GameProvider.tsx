@@ -1,13 +1,13 @@
-import React, { useReducer, Reducer } from 'react'
-import GameContext from './GameContext'
-import GameReducer from './GameReducer'
-import { fetchGames, fetchSingleGame } from '../services'
-import { TActions, TAppState } from './types'
-import { actionTypes } from './helper'
+import React, { useReducer, Reducer } from 'react';
+import GameContext from './GameContext';
+import GameReducer from './GameReducer';
+import { fetchGames, fetchSingleGame } from '../services';
+import { TActions, TAppState } from './types';
+import { actionTypes } from './helper';
 
 type TProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 const GameProvider: React.FC<TProps> = ({ children }) => {
   const initialState: TAppState = {
@@ -34,38 +34,38 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
       screenshots: [],
     },
     loading: false,
-  }
+  };
 
   const [state, dispatch] = useReducer<Reducer<TAppState, TActions>>(
     GameReducer,
     initialState
-  )
+  );
 
   const getGames = async (platform: string) => {
-    const games = await fetchGames(platform)
+    setLoading();
 
-    setLoading()
+    const games = await fetchGames(platform);
 
     dispatch({
       type: actionTypes.GET_GAMES,
       games,
-    })
-  }
+    });
+  };
 
   const getSingleGame = async (id: string) => {
-    const game = await fetchSingleGame(id)
+    setLoading();
 
-    setLoading()
+    const game = await fetchSingleGame(id);
 
     dispatch({
       type: actionTypes.GET_SINGLE_GAME,
       game,
-    })
-  }
+    });
+  };
 
   const setLoading = (): void => {
-    dispatch({ type: actionTypes.SET_LOADING, loading: true })
-  }
+    dispatch({ type: actionTypes.SET_LOADING, loading: true });
+  };
 
   return (
     <GameContext.Provider
@@ -80,7 +80,7 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
     >
       {children}
     </GameContext.Provider>
-  )
-}
+  );
+};
 
-export default GameProvider
+export default GameProvider;
