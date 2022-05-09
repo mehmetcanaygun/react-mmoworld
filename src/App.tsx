@@ -1,8 +1,8 @@
-import GameProvider from './context/GameProvider'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { HomePage, GamesPage, GameDetailPage, NotFoundPage } from './pages'
-import { Navbar, Footer } from './components'
-import './style/input.css'
+import GameProvider from './context/GameProvider';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage, GamesPage, GameDetailPage, NotFoundPage } from './pages';
+import { Navbar, Footer } from './components';
+import './style/input.css';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Footer />
       </Router>
     </GameProvider>
-  )
+  );
 }
 
-export default App
+export default App;

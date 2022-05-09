@@ -12,16 +12,18 @@ type TProps = {
 const GameProvider: React.FC<TProps> = ({ children }) => {
   const initialState: TAppState = {
     games: [],
-    game: {
+    gameDetail: {
       id: 0,
       title: '',
       thumbnail: '',
       short_description: '',
+      game_url: '',
       genre: '',
       platform: '',
       publisher: '',
       developer: '',
       release_date: '',
+      profile_url: '',
       status: '',
       description: '',
       minimum_system_requirements: {
@@ -55,11 +57,11 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
   const getSingleGame = async (id: string) => {
     setLoading();
 
-    const game = await fetchSingleGame(id);
+    const gameDetail = await fetchSingleGame(id);
 
     dispatch({
       type: actionTypes.GET_SINGLE_GAME,
-      game,
+      gameDetail,
     });
   };
 
@@ -71,7 +73,7 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
     <GameContext.Provider
       value={{
         games: state.games,
-        game: state.game,
+        gameDetail: state.gameDetail,
         loading: state.loading,
         getGames,
         getSingleGame,

@@ -10,6 +10,8 @@ export interface IGame {
   publisher: string;
   developer: string;
   release_date: string;
+  profile_url: string;
+  game_url: string;
 }
 
 export interface ISingleGame extends IGame {
@@ -27,7 +29,7 @@ export interface ISingleGame extends IGame {
 
 export type TAppState = {
   games: IGame[];
-  game: ISingleGame;
+  gameDetail: ISingleGame;
   loading: boolean;
 }
 
@@ -39,5 +41,5 @@ export type TAppContext = TAppState & {
 
 export type TActions =
   | { type: actionTypes.GET_GAMES; games: IGame[] }
-  | { type: actionTypes.GET_SINGLE_GAME; game: ISingleGame }
+  | { type: actionTypes.GET_SINGLE_GAME; gameDetail: ISingleGame }
   | { type: actionTypes.SET_LOADING; loading: boolean }

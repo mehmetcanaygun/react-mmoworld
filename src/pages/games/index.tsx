@@ -15,19 +15,23 @@ const GamesPage = () => {
 
   if (gameContext?.loading) return <Spinner />;
 
-  return (
-    <div className="min-h-screen">
-      <div className="container mx-auto px-2 py-5 md:px-0 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {gameContext?.games.map((game) => (
-          <GameCard
-            key={game.id}
-            game={game}
-            platform={platform ? platform : 'all'}
-          />
-        ))}
+  if (gameContext?.games) {
+    return (
+      <div className="min-h-screen">
+        <div className="container mx-auto px-2 py-5 md:px-0 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {gameContext.games.map((game) => (
+            <GameCard
+              key={game.id}
+              game={game}
+              platform={platform ? platform : 'all'}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return null;
+  }
 };
 
 export default GamesPage;
