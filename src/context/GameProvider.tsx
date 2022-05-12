@@ -1,7 +1,7 @@
 import React, { useReducer, Reducer } from 'react';
 import GameContext from './GameContext';
 import GameReducer from './GameReducer';
-import { fetchGames, fetchSingleGame } from '../services';
+import { fetchGames, fetchSingleGame, searchGames } from '../services';
 import { TActions, TAppState } from './types';
 import { actionTypes } from './helper';
 
@@ -65,6 +65,21 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
     });
   };
 
+  const filterGames = async (
+    platform: string,
+    genre: string,
+    sortBy: string
+  ) => {
+    setLoading();
+
+    const games = await searchGames(platform, genre, sortBy);
+
+    dispatch({
+      type: actionTypes.SEARCH_GAMES,
+      games,
+    });
+  };
+
   const setLoading = (): void => {
     dispatch({ type: actionTypes.SET_LOADING, loading: true });
   };
@@ -77,6 +92,7 @@ const GameProvider: React.FC<TProps> = ({ children }) => {
         loading: state.loading,
         getGames,
         getSingleGame,
+        filterGames,
         setLoading,
       }}
     >

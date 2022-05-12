@@ -36,6 +36,7 @@ export type TAppState = {
 export type TAppContext = TAppState & {
   getGames: (platform: string) => void;
   getSingleGame: (id: string) => void;
+  filterGames: (platform: string, genre: string, sortBy: string) => void;
   setLoading: () => void;
 }
 
@@ -43,3 +44,4 @@ export type TActions =
   | { type: actionTypes.GET_GAMES; games: IGame[] }
   | { type: actionTypes.GET_SINGLE_GAME; gameDetail: ISingleGame }
   | { type: actionTypes.SET_LOADING; loading: boolean }
+  | { type: actionTypes.SEARCH_GAMES; games: IGame[] }
