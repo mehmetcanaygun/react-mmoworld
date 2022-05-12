@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import GameContext from '../../context/GameContext';
 
 type TProps = {
@@ -23,13 +23,19 @@ const Search = ({ platform }: TProps) => {
 
   const cleanSearch = () => {
     setGenre('mmorpg');
-    setSortBy('release-date');
+    setSortBy('none');
 
     if (gameContext?.getGames) {
       gameContext.getGames(platform);
       setIsClearVisible(false);
     }
   };
+
+  useEffect(() => {
+    cleanSearch();
+
+    // eslint-disable-next-line
+  }, [platform]);
 
   return (
     <div className="container mx-auto px-2 mt-8 mb-4 md:px-0 flex justify-end">
@@ -44,7 +50,7 @@ const Search = ({ platform }: TProps) => {
           </label>
           <select
             id="genre-category"
-            defaultValue={genre}
+            value={genre}
             className="p-2 border-0 rounded-md bg-light text-dark"
             onChange={(e) => setGenre(e.target.value)}
           >
@@ -73,7 +79,7 @@ const Search = ({ platform }: TProps) => {
           </label>
           <select
             id="select-category"
-            defaultValue={sortBy}
+            value={sortBy}
             className="p-2 border-0 rounded-md bg-light text-dark"
             onChange={(e) => setSortBy(e.target.value)}
           >
