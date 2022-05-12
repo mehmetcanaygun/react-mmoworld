@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const HEADERS = {
   'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com',
-  'X-RapidAPI-Key': '40a97b82afmsh0a4c48f7a9f1d0ep13edc5jsn510b6bbfd7ab'
+  'X-RapidAPI-Key': 'YOUR_RAPID_API_KEY'
 }
 
 /**

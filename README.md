@@ -1,38 +1,49 @@
 # MMOWorld
 
-## Available Scripts
+A React app that is created w/ TypeScript & TailwindCSS to display MMO games using [MMO API](https://rapidapi.com/digiwalls/api/mmo-games)
 
-In the project directory, you can run:
+**To run the project**
 
-### `npm start`
+`npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+`npm start`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+`npm run build`
 
-### `npm test`
+**PS**: Make sure to use your own RapidAPI in 'src/services/index.ts'.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![API Key](/src/assets/app-api-key.png)
 
-### `npm run build`
+## Images
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Home Page**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Home Page](/src/assets/app-home.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Games Page**
 
-### `npm run eject`
+![Games Page](/src/assets/app-games.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Game Detail Page**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Game Detail Page](/src/assets/app-game-detail.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**404 Not Found**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![404 Not Found](/src/assets/app-404.png)
+
+**Home Page - Small Screen**
+
+![Home Page Small Screen](/src/assets/app-home-mobile.png)
+
+**Hamburger Menu - Small Screen**
+
+![Hamburger Menu Small Screen](/src/assets/app-menu-mobile.png)
+
+**Games Page - Small Screen**
+
+![Games Page Small Screen](/src/assets/app-games-mobile.png)
+
+**Game Detail Page - Small Screen**
+
+![Game Detail Page Small Screen](/src/assets/app-game-detail-mobile.png)
